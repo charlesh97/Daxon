@@ -1,1 +1,39 @@
-<mxfile host="app.diagrams.net" modified="2023-01-07T04:22:16.605Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36" version="20.3.0" etag="n2l4IkhU1paRFSAjFOoH" type="github"><diagram id="xJpW1Agtk43ZV3HT_28d">UzV2zq1wL0osyPDNT0nNUTV2VTV2LsrPL4GwciucU3NyVI0MMlNUjV1UjYwMgFjVyA2HrCFY1qAgsSg1rwSLBiADYTaQg2Y1AA==</diagram></mxfile>
+<mxfile host="app.diagrams.net" modified="2023-01-07T04:28:30.190Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36" etag="HJQceWC3-KIgkYTVDmcQ" version="20.3.0" type="github">
+  <diagram id="xJpW1Agtk43ZV3HT_28d" name="Page-1">
+    <mxGraphModel dx="2066" dy="1060" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="zH94phYv2ytMzzX6-p4_-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="zH94phYv2ytMzzX6-p4_-1" target="zH94phYv2ytMzzX6-p4_-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zH94phYv2ytMzzX6-p4_-1" value="Person Detection Process&lt;br&gt;&lt;br&gt;TFLite Algorithm or YOLOv7 w/ Pytorch" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="195" y="220" width="200" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="zH94phYv2ytMzzX6-p4_-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="zH94phYv2ytMzzX6-p4_-2">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="735" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zH94phYv2ytMzzX6-p4_-2" value="Robot Control Process&lt;br&gt;&lt;br&gt;(Motor PID, etc)" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="475" y="220" width="200" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="zH94phYv2ytMzzX6-p4_-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="zH94phYv2ytMzzX6-p4_-3" target="zH94phYv2ytMzzX6-p4_-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zH94phYv2ytMzzX6-p4_-3" value="Pretrained Model" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="195" y="150" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="zH94phYv2ytMzzX6-p4_-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="zH94phYv2ytMzzX6-p4_-4" target="zH94phYv2ytMzzX6-p4_-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zH94phYv2ytMzzX6-p4_-4" value="Webcam&amp;nbsp;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="55" y="265" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="zH94phYv2ytMzzX6-p4_-10" value="Action" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="735" y="265" width="60" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
