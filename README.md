@@ -1,2 +1,2 @@
 # Daxon
-Custom Smart Nerf Turrent
+Custom smart nerf turret with real-time person detection / facial recognition
