@@ -2,6 +2,7 @@
 
 
 import os
+import sys
 import pathlib
 import matplotlib
 matplotlib.use('MacOSX')
@@ -20,7 +21,11 @@ import tensorflow_hub as hub
 
 import time 
 
-tf.get_logger().setLevel('ERROR')
+tf.get_logger().setLevel('INFO')
+
+sys.path.append('/Users/charleshood/Documents/Github/daxon/python-macos/models/research')
+
+
 
 
 # @title Run this!!
@@ -135,7 +140,7 @@ from object_detection.utils import ops as utils_ops
 PATH_TO_LABELS = './models/research/object_detection/data/mscoco_label_map.pbtxt'
 category_index = label_map_util.create_category_index_from_labelmap(PATH_TO_LABELS, use_display_name=True)
 
-model_display_name = 'CenterNet HourGlass104 512x512' # @param ['CenterNet HourGlass104 512x512','CenterNet HourGlass104 Keypoints 512x512','CenterNet HourGlass104 1024x1024','CenterNet HourGlass104 Keypoints 1024x1024','CenterNet Resnet50 V1 FPN 512x512','CenterNet Resnet50 V1 FPN Keypoints 512x512','CenterNet Resnet101 V1 FPN 512x512','CenterNet Resnet50 V2 512x512','CenterNet Resnet50 V2 Keypoints 512x512','EfficientDet D0 512x512','EfficientDet D1 640x640','EfficientDet D2 768x768','EfficientDet D3 896x896','EfficientDet D4 1024x1024','EfficientDet D5 1280x1280','EfficientDet D6 1280x1280','EfficientDet D7 1536x1536','SSD MobileNet v2 320x320','SSD MobileNet V1 FPN 640x640','SSD MobileNet V2 FPNLite 320x320','SSD MobileNet V2 FPNLite 640x640','SSD ResNet50 V1 FPN 640x640 (RetinaNet50)','SSD ResNet50 V1 FPN 1024x1024 (RetinaNet50)','SSD ResNet101 V1 FPN 640x640 (RetinaNet101)','SSD ResNet101 V1 FPN 1024x1024 (RetinaNet101)','SSD ResNet152 V1 FPN 640x640 (RetinaNet152)','SSD ResNet152 V1 FPN 1024x1024 (RetinaNet152)','Faster R-CNN ResNet50 V1 640x640','Faster R-CNN ResNet50 V1 1024x1024','Faster R-CNN ResNet50 V1 800x1333','Faster R-CNN ResNet101 V1 640x640','Faster R-CNN ResNet101 V1 1024x1024','Faster R-CNN ResNet101 V1 800x1333','Faster R-CNN ResNet152 V1 640x640','Faster R-CNN ResNet152 V1 1024x1024','Faster R-CNN ResNet152 V1 800x1333','Faster R-CNN Inception ResNet V2 640x640','Faster R-CNN Inception ResNet V2 1024x1024','Mask R-CNN Inception ResNet V2 1024x1024']
+model_display_name = 'Mask R-CNN Inception ResNet V2 1024x1024' # @param ['CenterNet HourGlass104 512x512','CenterNet HourGlass104 Keypoints 512x512','CenterNet HourGlass104 1024x1024','CenterNet HourGlass104 Keypoints 1024x1024','CenterNet Resnet50 V1 FPN 512x512','CenterNet Resnet50 V1 FPN Keypoints 512x512','CenterNet Resnet101 V1 FPN 512x512','CenterNet Resnet50 V2 512x512','CenterNet Resnet50 V2 Keypoints 512x512','EfficientDet D0 512x512','EfficientDet D1 640x640','EfficientDet D2 768x768','EfficientDet D3 896x896','EfficientDet D4 1024x1024','EfficientDet D5 1280x1280','EfficientDet D6 1280x1280','EfficientDet D7 1536x1536','SSD MobileNet v2 320x320','SSD MobileNet V1 FPN 640x640','SSD MobileNet V2 FPNLite 320x320','SSD MobileNet V2 FPNLite 640x640','SSD ResNet50 V1 FPN 640x640 (RetinaNet50)','SSD ResNet50 V1 FPN 1024x1024 (RetinaNet50)','SSD ResNet101 V1 FPN 640x640 (RetinaNet101)','SSD ResNet101 V1 FPN 1024x1024 (RetinaNet101)','SSD ResNet152 V1 FPN 640x640 (RetinaNet152)','SSD ResNet152 V1 FPN 1024x1024 (RetinaNet152)','Faster R-CNN ResNet50 V1 640x640','Faster R-CNN ResNet50 V1 1024x1024','Faster R-CNN ResNet50 V1 800x1333','Faster R-CNN ResNet101 V1 640x640','Faster R-CNN ResNet101 V1 1024x1024','Faster R-CNN ResNet101 V1 800x1333','Faster R-CNN ResNet152 V1 640x640','Faster R-CNN ResNet152 V1 1024x1024','Faster R-CNN ResNet152 V1 800x1333','Faster R-CNN Inception ResNet V2 640x640','Faster R-CNN Inception ResNet V2 1024x1024','Mask R-CNN Inception ResNet V2 1024x1024']
 model_handle = ALL_MODELS[model_display_name]
 
 print('Selected model:'+ model_display_name)
@@ -149,7 +154,7 @@ selected_image = 'Beach' # @param ['Beach', 'Dogs', 'Naxos Taverna', 'Beatles', 
 flip_image_horizontally = False
 convert_image_to_grayscale = False
 
-image_path = './alissa2.jpg' #IMAGES_FOR_TEST[selected_image]
+image_path = IMAGES_FOR_TEST[selected_image]
 image_np = load_image_into_numpy_array(image_path)
 
 # Flip horizontally
@@ -161,9 +166,9 @@ if(convert_image_to_grayscale):
   image_np[0] = np.tile(
     np.mean(image_np[0], 2, keepdims=True), (1, 1, 3)).astype(np.uint8)
 
-plt.figure(figsize=(24,32))
-plt.imshow(image_np[0])
-plt.savefig('webcam_object_detection_blank.png')
+#plt.figure(figsize=(24,32))
+#plt.imshow(image_np[0])
+#plt.savefig('object_detection_blank.png')
 
 # running inference
 time_start = time.time()
@@ -174,7 +179,7 @@ print("Time to run:", time_end-time_start)
 # different object detection models have additional results
 # all of them are explained in the documentation
 result = {key:value.numpy() for key,value in results.items()}
-print(result.keys())
+#print(result.keys())
 with open('object_detection.results', 'wb') as file:
   pickle.dump(result, file)
   print('Wrote data to file')
@@ -204,4 +209,4 @@ viz_utils.visualize_boxes_and_labels_on_image_array(
 
 plt.figure(figsize=(24,32))
 plt.imshow(image_np_with_detections[0])
-plt.savefig('webcam_object_detection.png')
+plt.savefig('object_detection.png')
